@@ -2,11 +2,11 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const GRAMS_PER_TROY_OUNCE = 31.1034768;
-const POLL_INTERVAL_MS = 60_000;
+const Gold_Silver_Constant = 31.1034768;
+const POLL_INTERVAL_MS = 60_000; // fetchPrices() 60초 마다 실행 60000은 가독성 안 좋아서 60은 0.06초
 
 function App() {
-  const [goldOz, setGoldOz] = useState(null);
+  const [goldOz, setGoldOz] = useState(null); //goldOz는 읽기 setGoldOz는 상태변경 null은 초기값
   const [silverOz, setSilverOz] = useState(null);
   const [usdKrw, setUsdKrw] = useState(null);
   const [error, setError] = useState(null);
@@ -17,10 +17,11 @@ function App() {
         // 1. 금/은 시세 가져오기
         const resG = await fetch('https://data-asg.goldprice.org/dbXRates/USD');
         if (!resG.ok) throw new Error('금/은 시세 API 오류');
+        //서버응답을 json으로 변환 후 dataG에 저장
         const dataG = await resG.json();
+        //dataG에서 items[0].xauPrice 가져오는데 없으면 에러
         const goldPrice = dataG?.items?.[0]?.xauPrice;
         const silverPrice = dataG?.items?.[0]?.xagPrice;
-
         if (typeof goldPrice !== 'number' || typeof silverPrice !== 'number') {
           throw new Error('금/은 데이터 오류');
         }
@@ -52,20 +53,20 @@ function App() {
   if (goldOz == null || silverOz == null || usdKrw == null) return <div style={{ padding: 20 }}>Loading...</div>;
 
   // 계산
-  const goldPerGramUsd = goldOz / GRAMS_PER_TROY_OUNCE;
+  const goldPerGramUsd = goldOz / Gold_Silver_Constant;
   const goldPerGramKrw = goldPerGramUsd * usdKrw;
 
-  const silverPerGramUsd = silverOz / GRAMS_PER_TROY_OUNCE;
+  const silverPerGramUsd = silverOz / Gold_Silver_Constant;
   const silverPerGramKrw = silverPerGramUsd * usdKrw;
 
   return (
     <div style={{ padding: 20, fontFamily: 'sans-serif' }}>
-      <h1>실시간 시세 (1g 기준)</h1>
+      <h1>실시간 금과 은 1g당 가격</h1>
       <p>금 (USD): ${goldPerGramUsd.toFixed(2)} /g</p>
-      <p>금 (KRW): ₩{goldPerGramKrw.toLocaleString()} /g</p>
+      <p>금 (KRW): ₩{Math.round(goldPerGramKrw).toLocaleString()}원 </p>
       <hr />
       <p>은 (USD): ${silverPerGramUsd.toFixed(2)} /g</p>
-      <p>은 (KRW): ₩{silverPerGramKrw.toLocaleString()} /g</p>
+      <p>은 (KRW): ₩{Math.round(silverPerGramKrw).toLocaleString()}원 </p>
     </div>
   );
 }
