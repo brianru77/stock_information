@@ -7,9 +7,10 @@ const POLL_INTERVAL_MS = 60_000; // fetchPrices() 60초 마다 실행 60000은 �
 
 function App() {
   const [goldOz, setGoldOz] = useState(null); //goldOz는 읽기 setGoldOz는 상태변경 null은 초기값
-  const [silverOz, setSilverOz] = useState(null);
-  const [usdKrw, setUsdKrw] = useState(null);
-  const [error, setError] = useState(null);
+  const [silverOz, setSilverOz] = useState(null); //은값
+  const [usdKrw, setUsdKrw] = useState(null); //환율
+  const [bitcoinPrice, setBitcoinPrice] = useState(null); //비트코인 시세
+  const [error, setError] = useState(null); //에러체크
 
   useEffect(() => {
     async function fetchPrices() {
@@ -36,6 +37,15 @@ function App() {
         const krwRate = fx?.rates?.KRW;
         if (typeof krwRate !== 'number') throw new Error('환율 데이터 오류');
         setUsdKrw(krwRate);
+        
+        //비트코인 가져오기
+        const resBTC = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=krw');
+        if (!resBTC.ok) throw new Error(`비트코인 API 오류: ${resBTC.status}`);
+        const btc = await resBTC.json();
+        console.log('비트코인 응답:', btc);
+        const btcKrw = btc?.bitcoin?.krw;
+        if (typeof btcKrw !== 'number') throw new Error('비트코인 데이터 오류');
+        setBitcoinPrice(btcKrw);
 
         setError(null);
       } catch (e) {
@@ -61,12 +71,16 @@ function App() {
 
   return (
     <div style={{ padding: 20, fontFamily: 'sans-serif' }}>
-      <h1>실시간 금과 은 1g당 가격</h1>
-      <p>금 (USD): ${goldPerGramUsd.toFixed(2)} /g</p>
+      <h1>금과 은 1g당 가격</h1>
       <p>금 (KRW): ₩{Math.round(goldPerGramKrw).toLocaleString()}원 </p>
+      <p>금 (USD): ${goldPerGramUsd.toFixed(2)} /g</p>
       <hr />
-      <p>은 (USD): ${silverPerGramUsd.toFixed(2)} /g</p>
       <p>은 (KRW): ₩{Math.round(silverPerGramKrw).toLocaleString()}원 </p>
+      <p>은 (USD): ${silverPerGramUsd.toFixed(2)} /g</p>
+      <h2>₿ 비트코인 시세</h2>
+      {bitcoinPrice != null && (
+      <p>₩{bitcoinPrice.toLocaleString()}원 (1BTC)</p>
+)}
     </div>
   );
 }
