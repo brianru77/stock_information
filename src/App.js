@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import SideImageSlider from './SideImageSlider';
 
 const Gold_Silver_Constant = 31.1034768;
 const POLL_INTERVAL_MS = 60_000; // fetchPrices() 60초 마다 실행 60000은 가독성 안 좋아서 60은 0.06초
@@ -15,16 +16,16 @@ function App() {
 
   useEffect(() => {
 
-      //
-      fetch('http://localhost:4000/market-data')
-        .then(res => res.json())
-        .then(data => {
-          console.log('📈 실시간 데이터:', data);
-          setMarketData(data);
-        })
-        .catch(error => {
-          console.error('❌ 데이터 가져오기 실패:', error);
-        });
+    //
+    fetch('http://localhost:4000/market-data')
+      .then(res => res.json())
+      .then(data => {
+        console.log('📈 실시간 데이터:', data);
+        setMarketData(data);
+      })
+      .catch(error => {
+        console.error('❌ 데이터 가져오기 실패:', error);
+      });
 
     async function fetchPrices() {
       try {
@@ -50,7 +51,7 @@ function App() {
         const krwRate = fx?.rates?.KRW;
         if (typeof krwRate !== 'number') throw new Error('환율 데이터 오류');
         setUsdKrw(krwRate);
-        
+
         //비트코인 가져오기
         const resBTC = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=krw');
         if (!resBTC.ok) throw new Error(`비트코인 API 오류: ${resBTC.status}`);
@@ -81,32 +82,65 @@ function App() {
 
   const silverPerGramUsd = silverOz / Gold_Silver_Constant;
   const silverPerGramKrw = silverPerGramUsd * usdKrw;
-
   return (
-    <div style={{ padding: 20, fontFamily: 'sans-serif' }}>
-      <h1>금과 은 1g당 가격</h1>
-      <p>금 (KRW): ₩{Math.round(goldPerGramKrw).toLocaleString()}원 </p>
-      <p>금 (USD): ${goldPerGramUsd.toFixed(2)} /g</p>
-      <hr />
-      <p>은 (KRW): ₩{Math.round(silverPerGramKrw).toLocaleString()}원 </p>
-      <p>은 (USD): ${silverPerGramUsd.toFixed(2)} /g</p>
-      <h2>₿ 비트코인 시세</h2>
-      {bitcoinPrice != null && (
-      <p>₩{bitcoinPrice.toLocaleString()}원 (1BTC)</p>
-      )}
-       <h1>📊 실시간 시장 데이터</h1>
-      {marketData ? (
-        <ul>
-          <li>💵 달러 인덱스: {marketData['DXY/USD']?.price}</li>
-          <li>🛢️ WTI 유가: {marketData['WTI/USD']?.price}</li>
-          <li>🇺🇸 USD/KRW: {marketData['USD/KRW']?.price}</li>
-          <li>🇯🇵 USD/JPY: {marketData['USD/JPY']?.price}</li>
-          <li>🇨🇭 USD/CHF: {marketData['USD/CHF']?.price}</li>
-        </ul>
-      ) : (
-        <p>데이터 불러오는 중...</p>
-      )}
-    </div>
+    <>
+      <SideImageSlider />
+      <div
+        style={{
+          padding: '40px', fontFamily: 'Arial, sans-serif', backgroundColor: '#fff8f0', color: '#4b3d2a',
+          minHeight: '100vh'
+        }}>
+        <h1 style={{ textAlign: 'center', marginTop: '20px' }}>
+          📈 현금 흐름 지표 페이지
+        </h1>
+
+        <h1 style={{ marginBottom: '20px', color: '#333' }}>실시간 금과 은 1g당 가격</h1>
+
+        <div
+          style={{
+            background: '#fff',
+            padding: '20px',
+            borderRadius: '12px',
+            boxShadow: '0 0 10px rgba(0,0,0,0.05)',
+            marginBottom: '30px',
+            width: '40%',      // ✅ 가로폭 줄이기 (예: 70%)
+            height: '370px',   // ✅ 세로 길이 늘리기 (예: 400px)
+            margin: '0',         // margin을 초기화하거나
+            marginLeft: '0'      // 명시적으로 왼쪽 정렬
+          }}
+        >
+          <h2 style={{ marginBottom: '10px' }}>🏅 금</h2>
+          <h1>🇰🇷 <strong>₩{Math.round(goldPerGramKrw).toLocaleString()}</strong>원</h1>
+          <p>🇺🇸 <strong>${goldPerGramUsd.toFixed(2)}</strong> /g</p>
+
+          <h2 style={{ marginTop: '20px', marginBottom: '10px' }}>🥈 은</h2>
+          <h1>🇰🇷 <strong>₩{Math.round(silverPerGramKrw).toLocaleString()}</strong>원</h1>
+          <p>🇺🇸 <strong>${silverPerGramUsd.toFixed(2)}</strong> /g</p>
+        </div>
+
+        <h2 style={{ marginBottom: '10px', color: '#333' }}>₿ 실시간 비트코인 시세</h2>
+        {bitcoinPrice != null ? (
+          <p style={{ fontSize: '30px', fontWeight: 'bold', color: '#d17b0f' }}>
+            ₩{bitcoinPrice.toLocaleString()}원 (1 BTC)
+          </p>
+        ) : (
+          <p>불러오는 중...</p>
+        )}
+
+        <h2 style={{ marginTop: '40px', marginBottom: '15px', color: '#333' }}>📊 실시간 시장 데이터</h2>
+        {marketData ? (
+          <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+            <li>💵 달러 인덱스: <strong>{marketData['DXY/USD']?.price}</strong></li>
+            <li>🛢️ WTI 유가: <strong>{marketData['WTI/USD']?.price}</strong></li>
+            <li>🇺🇸 USD/KRW: <strong>{marketData['USD/KRW']?.price}</strong></li>
+            <li>🇯🇵 USD/JPY: <strong>{marketData['USD/JPY']?.price}</strong></li>
+            <li>🇨🇭 USD/CHF: <strong>{marketData['USD/CHF']?.price}</strong></li>
+          </ul>
+        ) : (
+          <p>데이터 불러오는 중...</p>
+        )}
+      </div>
+    </>
   );
 }
 
