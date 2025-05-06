@@ -11,8 +11,21 @@ function App() {
   const [usdKrw, setUsdKrw] = useState(null); //환율
   const [bitcoinPrice, setBitcoinPrice] = useState(null); //비트코인 시세
   const [error, setError] = useState(null); //에러체크
+  const [marketData, setMarketData] = useState(null); //
 
   useEffect(() => {
+
+      //
+      fetch('http://localhost:4000/market-data')
+        .then(res => res.json())
+        .then(data => {
+          console.log('📈 실시간 데이터:', data);
+          setMarketData(data);
+        })
+        .catch(error => {
+          console.error('❌ 데이터 가져오기 실패:', error);
+        });
+
     async function fetchPrices() {
       try {
         // 1. 금/은 시세 가져오기
@@ -80,7 +93,19 @@ function App() {
       <h2>₿ 비트코인 시세</h2>
       {bitcoinPrice != null && (
       <p>₩{bitcoinPrice.toLocaleString()}원 (1BTC)</p>
-)}
+      )}
+       <h1>📊 실시간 시장 데이터</h1>
+      {marketData ? (
+        <ul>
+          <li>💵 달러 인덱스: {marketData['DXY/USD']?.price}</li>
+          <li>🛢️ WTI 유가: {marketData['WTI/USD']?.price}</li>
+          <li>🇺🇸 USD/KRW: {marketData['USD/KRW']?.price}</li>
+          <li>🇯🇵 USD/JPY: {marketData['USD/JPY']?.price}</li>
+          <li>🇨🇭 USD/CHF: {marketData['USD/CHF']?.price}</li>
+        </ul>
+      ) : (
+        <p>데이터 불러오는 중...</p>
+      )}
     </div>
   );
 }

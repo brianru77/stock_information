@@ -1,4 +1,3 @@
-// proxy-server.js
 const express = require('express');
 const axios = require('axios');
 const dotenv = require('dotenv');
@@ -10,17 +9,28 @@ app.use(cors());
 
 const PORT = 4000;
 
-app.get('/gold', async (req, res) => {
+// 원하는 심볼만 우선 선택
+const symbols = [
+  'DXY/USD',     // 달러 인덱스
+  'WTI/USD',     // WTI 유가
+  'USD/KRW',     // 환율: 달러-원화
+  'USD/JPY',     // 환율: 달러-엔
+  'USD/CHF'      // 환율: 달러-스위스프랑
+];
+
+app.get('/market-data', async (req, res) => {
   try {
-    const response = await axios.get('https://www.goldapi.io/api/XAU/KRW', {
-      headers: {
-        'x-access-token': process.env.GOLDAPI_KEY,
-        'Content-Type': 'application/json',
+    const response = await axios.get(`https://api.twelvedata.com/price`, {
+      params: {
+        symbol: symbols.join(','),
+        apikey: process.env.TWELVEDAT,
       }
     });
+
     res.json(response.data);
   } catch (err) {
-    res.status(500).json({ message: 'Gold API 요청 실패', error: err.message });
+    console.error('❌ 오류:', err.message);
+    res.status(500).json({ message: 'Twelve Data API 요청 실패', error: err.message });
   }
 });
 
