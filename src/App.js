@@ -9,10 +9,17 @@ const POLL_INTERVAL_MS = 60_000; // fetchPrices() 60초 마다 실행 60000은 �
 function App() {
   const [goldOz, setGoldOz] = useState(null); //goldOz는 읽기 setGoldOz는 상태변경 null은 초기값
   const [silverOz, setSilverOz] = useState(null); //은값
-  const [usdKrw, setUsdKrw] = useState(null); //환율
+  const [usdKrw, setUsdKrw] = useState(null); //금값 환율
   const [bitcoinPrice, setBitcoinPrice] = useState(null); //비트코인 시세
   const [error, setError] = useState(null); //에러체크
   const [marketData, setMarketData] = useState(null); //
+
+  //심볼없어서 환율 계산
+  const usdKrwEX = parseFloat(marketData['USD/KRW']?.price);
+  const usdJpy = parseFloat(marketData['USD/JPY']?.price);
+  const usdChf = parseFloat(marketData['USD/CHF']?.price);
+  const jpyToKrw = usdJpy ? usdKrw / usdJpy : null;
+  const chfToKrw = usdChf ? usdKrw / usdChf : null;
 
   useEffect(() => {
 
@@ -44,7 +51,7 @@ function App() {
         setGoldOz(goldPrice);
         setSilverOz(silverPrice);
 
-        // 2. 환율 가져오기
+        // 2. 금 환율 가져오기
         const resF = await fetch('https://open.er-api.com/v6/latest/USD');
         if (!resF.ok) throw new Error('환율 API 오류');
         const fx = await resF.json();
@@ -133,8 +140,10 @@ function App() {
             <li>💵 달러 인덱스: <strong>{marketData['DXY/USD']?.price}</strong></li>
             <li>🛢️ WTI 유가: <strong>{marketData['WTI/USD']?.price}</strong></li>
             <li>🇺🇸 USD/KRW: <strong>{marketData['USD/KRW']?.price}</strong></li>
-            <li>🇯🇵 USD/JPY: <strong>{marketData['USD/JPY']?.price}</strong></li>
-            <li>🇨🇭 USD/CHF: <strong>{marketData['USD/CHF']?.price}</strong></li>
+            {/* <li>🇯🇵 JPY/KRW: <strong>{marketData['JPY/KRW']?.price}</strong></li>
+            <li>🇨🇭 CHF/KRW: <strong>{marketData['CHF/KRW']?.price}</strong></li> */}
+            <li>🇯🇵 JPY/KRW: <strong>{jpyToKrw ? jpyToKrw.toFixed(2) : '불러오는 중'}</strong></li>
+            <li>🇨🇭 CHF/KRW: <strong>{chfToKrw ? chfToKrw.toFixed(2) : '불러오는 중'}</strong></li>
           </ul>
         ) : (
           <p>데이터 불러오는 중...</p>
