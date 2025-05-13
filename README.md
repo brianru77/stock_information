@@ -1,70 +1,29 @@
-# Getting Started with Create React App1
+# 🌈주식 정보 페이지
+## 로그인 시 알림기능 제공
+<p align="center">
+<img src="https://github.com/user-attachments/assets/e1b1b294-bfc9-488b-89f2-a264cec68f47" width="100%" height="100%">
+</p>
+- # 메인 데이터
+> ## 금과 은 가격
+>> ### 금과 은의 g당 원화 가격을 실시간으로 표기
+> ## 비트코인 가격
+>> ## 한국의 비트코인 시세를 실시간으로 표기
+- # 서브 데이터
+> ## 달러 인덱스  
+> ## 국제 유가  
+> ## 달러/원화, 엔/원화, 스위스프랑/원화
+> ## 나스닥, S&P500 지수
+- # APIx-> 크롤링으로 받아오는 부가적인 데이터
+> ## 미국의 현재 기준금리와 10년물 채권금리 
+> ## 일반 CPI와 근원CPI
+> ## 탐욕지수와 공포지수
+> ## cape지수
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🔔 알림기능 
+> ## 설정한 가격 도달 시 알림 (금, 은, 비트코인만 가능)
+> ## 금과 은값, 비트코인의 전일 대비 상승률 표기(기준값:전일 종가/오늘 시가)
+> ## AI데이터 기반 앞으로 1달간 환율 전망치 표기
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/9ea1c973-7301-49d1-8e14-99cf483a8d16" width="100%" height="100%">
+</p>
