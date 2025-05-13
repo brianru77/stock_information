@@ -24,6 +24,7 @@
 > ## 설정한 가격 도달 시 알림 (금, 은, 비트코인만 가능)
 > ## 금과 은값, 비트코인의 전일 대비 상승률 표기(기준값:전일 종가/오늘 시가)
 > ## AI데이터 기반 앞으로 1달간 환율 전망치 표기
+> ## 오늘의 종목 10건
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/9ea1c973-7301-49d1-8e14-99cf483a8d16" width="70%" height="70%">
