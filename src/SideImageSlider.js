@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import './App.css';
 
 const images = [
   '/images/gold.png',
   '/images/silver.png',
-  '/images/bitcoin.png'
+  '/images/bitcoin.png',
+  '/images/NASDAQ.png',
+  '/images/US500.png',
+  '/images/Dow.png',
+  '/images/exchange_rate.png',
+  '/images/Stock.png'
 ];
 
 function SideImageSlider() {
@@ -12,31 +18,26 @@ function SideImageSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 3000); // 3초마다 전환
+    }, 3000);
     return () => clearInterval(timer);
   }, []);
 
+  const getIndex = (offset) => {
+    const len = images.length;
+    return (currentIndex + offset + len) % len;
+  };
+
   return (
-    <div style={{
-      position: 'fixed',
-      top: '18%',
-      right: '10px',
-      width: '600px',
-      height: '600px',
-      zIndex: 1000
-    }}>
-      <img
-        src={images[currentIndex]}
-        alt="symbol"
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'contain',
-          transition: 'opacity 0.5s ease-in-out',
-          opacity: 1
-        }}
-      />
+    <div className="slider-container">
+      <div className="slider-wrapper">
+        <img src={images[getIndex(-2)]} className="image far-left" alt="prev2" />
+        <img src={images[getIndex(-1)]} className="image left" alt="prev1" />
+        <img src={images[getIndex(0)]} className="image center" alt="current" />
+        <img src={images[getIndex(1)]} className="image right" alt="next1" />
+        <img src={images[getIndex(2)]} className="image far-right" alt="next2" />
+      </div>
     </div>
   );
 }
+
 export default SideImageSlider;

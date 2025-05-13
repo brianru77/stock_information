@@ -9,13 +9,16 @@ app.use(cors());
 
 const PORT = 4000;
 
-// 원하는 심볼만 우선 선택
+//심볼
 const symbols = [
   'DXY/USD',     // 달러 인덱스
   'WTI/USD',     // WTI 유가
   'USD/KRW',     // 환율: 달러-원화
   'USD/JPY',     // 환율: 달러-엔화
-  'USD/CHF'      // 환율: 달러-스위스프랑 //twelvedata에는 엔-원,프랑-원에 대한 심볼이 없어서 불가능.
+  'USD/CHF',      // 환율: 달러-스위스프랑 //twelvedata에는 엔-원,프랑-원에 대한 심볼이 없어서 불가능.
+  'NASDAQ',
+  'SPX',
+  'DJI'
 ];
 
 app.get('/market-data', async (req, res) => {

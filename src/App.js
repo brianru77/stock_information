@@ -4,7 +4,8 @@ import axios from 'axios';
 import SideImageSlider from './SideImageSlider';
 
 const Gold_Silver_Constant = 31.1034768;
-const POLL_INTERVAL_MS = 60_000; // fetchPrices() 60초 마다 실행 60000은 가독성 안 좋아서 60은 0.06초
+//const POLL_INTERVAL_MS = 60_000; // fetchPrices() 60초 마다 실행 60000은 가독성 안 좋아서 60은 0.06초
+const POLL_INTERVAL_MS = 3600000; //초기개발중이니 넉넉히(1시간)
 
 function App() {
   const [goldOz, setGoldOz] = useState(null); //goldOz는 읽기 setGoldOz는 상태변경 null은 초기값
@@ -15,15 +16,29 @@ function App() {
   const [marketData, setMarketData] = useState(null); //
 
   //심볼없어서 환율 계산
-  const usdKrwEX = parseFloat(marketData['USD/KRW']?.price);
-  const usdJpy = parseFloat(marketData['USD/JPY']?.price);
-  const usdChf = parseFloat(marketData['USD/CHF']?.price);
-  const jpyToKrw = usdJpy ? usdKrw / usdJpy : null;
-  const chfToKrw = usdChf ? usdKrw / usdChf : null;
+  // const usdKrwEX = parseFloat(marketData['USD/KRW']?.price);
+  // const usdJpy = parseFloat(marketData['USD/JPY']?.price);
+  // const usdChf = parseFloat(marketData['USD/CHF']?.price);
+  // const jpyToKrw = usdJpy ? usdKrw / usdJpy : null;
+  // const chfToKrw = usdChf ? usdKrw / usdChf : null;
+
+  let usdKrwEX, usdJpy, usdChf, jpyToKrw, chfToKrw;
+  if (
+    marketData &&
+    marketData['USD/KRW'] &&
+    marketData['USD/JPY'] &&
+    marketData['USD/CHF']
+  ) {
+    usdKrwEX = parseFloat(marketData['USD/KRW'].price);
+    usdJpy = parseFloat(marketData['USD/JPY'].price);
+    usdChf = parseFloat(marketData['USD/CHF'].price);
+
+    jpyToKrw = usdJpy ? usdKrwEX / usdJpy : null;
+    chfToKrw = usdChf ? usdKrwEX / usdChf : null;
+  }
+
 
   useEffect(() => {
-
-    //
     fetch('http://localhost:4000/market-data')
       .then(res => res.json())
       .then(data => {
@@ -124,7 +139,7 @@ function App() {
           <h1>🇰🇷 <strong>₩{Math.round(silverPerGramKrw).toLocaleString()}</strong>원</h1>
           <p>🇺🇸 <strong>${silverPerGramUsd.toFixed(2)}</strong> /g</p>
         </div>
-
+        <hr className="divider" />
         <h2 style={{ marginBottom: '10px', color: '#333' }}>₿ 실시간 비트코인 시세</h2>
         {bitcoinPrice != null ? (
           <p style={{ fontSize: '30px', fontWeight: 'bold', color: '#d17b0f' }}>
@@ -133,15 +148,17 @@ function App() {
         ) : (
           <p>불러오는 중...</p>
         )}
-
+        <hr className="divider" />
         <h2 style={{ marginTop: '40px', marginBottom: '15px', color: '#333' }}>📊 실시간 시장 데이터</h2>
         {marketData ? (
           <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+            <li>나스닥 지수: <strong>{marketData['NASDAQ']}</strong></li>
+            <li>S&P500 지수: <strong>{marketData['SPX']}</strong></li>
+            <li>다우존스 지수: <strong>{marketData['DJI']}</strong></li>
+            <hr className="divider" />
             <li>💵 달러 인덱스: <strong>{marketData['DXY/USD']?.price}</strong></li>
             <li>🛢️ WTI 유가: <strong>{marketData['WTI/USD']?.price}</strong></li>
             <li>🇺🇸 USD/KRW: <strong>{marketData['USD/KRW']?.price}</strong></li>
-            {/* <li>🇯🇵 JPY/KRW: <strong>{marketData['JPY/KRW']?.price}</strong></li>
-            <li>🇨🇭 CHF/KRW: <strong>{marketData['CHF/KRW']?.price}</strong></li> */}
             <li>🇯🇵 JPY/KRW: <strong>{jpyToKrw ? jpyToKrw.toFixed(2) : '불러오는 중'}</strong></li>
             <li>🇨🇭 CHF/KRW: <strong>{chfToKrw ? chfToKrw.toFixed(2) : '불러오는 중'}</strong></li>
           </ul>
@@ -152,5 +169,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
