@@ -2,7 +2,8 @@
 ## 로그인 시 알림기능 제공
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e1b1b294-bfc9-488b-89f2-a264cec68f47" width="100%" height="100%">
-</p>
+</p>  
+
 - # 메인 데이터
 > ## 금과 은 가격
 >> ### 금과 은의 g당 원화 가격을 실시간으로 표기
@@ -25,5 +26,6 @@
 > ## AI데이터 기반 앞으로 1달간 환율 전망치 표기
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/9ea1c973-7301-49d1-8e14-99cf483a8d16" width="100%" height="100%">
+<img src="https://github.com/user-attachments/assets/9ea1c973-7301-49d1-8e14-99cf483a8d16" width="70%" height="70%">
 </p>
+
