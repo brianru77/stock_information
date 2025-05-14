@@ -4,6 +4,11 @@
 <img src="https://github.com/user-attachments/assets/e1b1b294-bfc9-488b-89f2-a264cec68f47" width="100%" height="100%">
 </p>  
 
+### 로그인/회원가입 기능 추가
+<p align="center">
+<img src="https://github.com/user-attachments/assets/951ae157-326f-464a-bd0e-1787f85edc6b" width="100%" height="100%">
+</p>  
+
 - # 메인 데이터
 > ## 실시간 금과 은 가격
 >> ### 금과 은 g당 원화 가격 표기
