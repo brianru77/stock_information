@@ -29,7 +29,7 @@
 > ## 금,은,코인 전일 대비 상승/하락률 표기
 >> ## 기준:전일 종가-당일 시가
 > ## 7일 간 환율 전망치 표기(달러, 엔)
-> ## 오늘의 종목 3건 추천
+> ## 오늘의 추천 종목 3건
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/9ea1c973-7301-49d1-8e14-99cf483a8d16" width="70%" height="70%">
