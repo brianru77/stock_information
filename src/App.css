@@ -1,3 +1,26 @@
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 10px 20px;
+  background-color: #fff3da; /* 홈로고 부분과 컬러 맞추기 */
+  font-weight: bold;
+  /* z-index: 10;
+  position: relative; */
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar a:hover {
+  background-color: #e0e0e0;
+}
+
 .slider-container {
   position: fixed;
   top: 18%;
