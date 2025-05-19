@@ -20,9 +20,30 @@ export default function Register() {
       alert('회원가입 실패: ' + (err.response?.data?.message || '오류 발생'));
     }
   };
+  const styles = {
+    container: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '80vh', // 세로 중앙
+      backgroundColor: '#2196F3'
+    },
+    form: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '12px',
+      width: '300px',
+      padding: '24px',
+      border: '1px solid #ccc',
+      borderRadius: '8px',
+      backgroundColor: '#f9f9f9',
+    },
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
+  <div style={styles.container}>
+    <form onSubmit={handleSubmit} style={styles.form}>
+      <h2>회원가입</h2>
       <input
         name="name"
         placeholder="이름"
@@ -48,5 +69,6 @@ export default function Register() {
       />
       <button type="submit">회원가입</button>
     </form>
-  );
+  </div>
+);
 }

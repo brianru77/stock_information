@@ -6,6 +6,7 @@ import Login from './pages/Login.jsx';   // 로그인 화면
 import Register from './pages/Register.jsx'; // 회원가입 화면
 import TodayRecommend from './pages/TodayRecommend.jsx'; //오늘의 추천 종목
 import News from './pages/News.jsx'; //새로운 뉴스 소식
+import MyPage from './pages/MyPage.jsx'; //내정보> 회원탈퇴
 
 function App() {
   const [user, setUser] = useState(null);
@@ -56,6 +57,11 @@ function App() {
               <Link to="/register">회원가입</Link>
             </>
           )}
+          {user && (
+            <>
+              <Link to="/mypage">내 정보</Link>
+            </>
+          )}
         </div>
       </div>
       <Routes>
@@ -64,6 +70,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/today_recommend" element={<TodayRecommend />} />
         <Route path="/news" element={<News />} />
+        <Route path="/mypage" element={<MyPage user={user} setUser={setUser} />} />
       </Routes>
     </Router>
   );

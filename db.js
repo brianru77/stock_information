@@ -11,7 +11,7 @@ const pool = new Pool({
 
 // 연결 확인 (선택적)
 pool.connect()
-  .then(() => console.log('✅ PostgreSQL 연결 성공!'))
+  .then(() => console.log('PostgreSQL 연결 성공!'))
   .catch(err => {
     console.error('❌ PostgreSQL 연결 실패:', err.message);
     process.exit(1);

@@ -50,7 +50,6 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
-
 //로그인 + JWT 발급 API
 //요청: POST /api/login
 //body: { email, password }
@@ -84,7 +83,7 @@ app.post('/api/login', async (req, res) => {
     );
 
     //토큰과 메시지 응답
-    res.send({ message: '로그인 성공!', token });
+    res.send({ message: '로그인 성공!', token, name: user.name });
 
   } catch (err) {
     //로그인 중 오류 처리
@@ -126,5 +125,5 @@ app.get('/api/me', authenticate, (req, res) => {
 
 //서버 실행
 app.listen(4000, () => {
-  console.log('🚀 서버 실행 중: http://localhost:4000');
+  console.log('서버 실행 중: http://localhost:4000');
 });
