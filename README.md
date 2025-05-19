@@ -1,12 +1,15 @@
 # 🌈주식 정보 페이지
-### 테스팅
+### 수정전
 <p align="center">
-<img src="https://github.com/user-attachments/assets/e1b1b294-bfc9-488b-89f2-a264cec68f47" width="100%" height="100%">
+<img src="https://github.com/user-attachments/assets/951ae157-326f-464a-bd0e-1787f85edc6b" width="70%" height="70%">
 </p>  
 
-### 로그인/회원가입 기능 추가
+---
+
+### 수정 후
 <p align="center">
-<img src="https://github.com/user-attachments/assets/951ae157-326f-464a-bd0e-1787f85edc6b" width="100%" height="100%">
+<img src="https://github.com/user-attachments/assets/9cffbbac-eda3-412d-9d6d-5a7a0709558f" width="70%" height="70%">  
+<img src="https://github.com/user-attachments/assets/a5b54e1e-3854-4232-820b-11097603fb96" width="70%" height="70%">
 </p>  
 
 - # 메인 데이터
