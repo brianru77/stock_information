@@ -1,9 +1,34 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff3da;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.left-menu a,
+.right-menu a {
+  margin: 0 8px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+/* 마우스를 올렸을 때만 반응 */
+.topbar a:hover {
+  background-color: #ffe6a7; /* 은은한 노란빛 */
+  color: #000;
+  transform: translateY(-1px); /* 약간 떠오르는 느낌 */
+}
+
 .navbar {
   display: flex;
   justify-content: flex-end;
+  /*오른쪽 정렬, flex-start는 왼쪽정렬*/
   gap: 16px;
   padding: 10px 20px;
-  background-color: #fff3da; /* 홈로고 부분과 컬러 맞추기 */
+  background-color: #fff3da;
+  /* 홈로고 부분과 컬러 맞추기 */
   font-weight: bold;
   /* z-index: 10;
   position: relative; */
@@ -107,7 +132,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
@@ -116,6 +140,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

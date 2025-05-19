@@ -105,7 +105,7 @@ export default function Home() {
           <h1 style={{
             fontSize: '36px',
             fontWeight: 'bold',
-            color: '#d4af37', // 금색 느낌
+            color: '#d4af37', // 금색
             margin: '8px 0'
           }}>
             ₩{Math.round(goldPerGramKrw).toLocaleString()}원
@@ -118,7 +118,7 @@ export default function Home() {
           <h1 style={{
             fontSize: '36px',
             fontWeight: 'bold',
-            color: '#aaa', // 은색 느낌
+            color: '#aaa', // 은색
             margin: '8px 0'
           }}>
             ₩{Math.round(silverPerGramKrw).toLocaleString()}원
