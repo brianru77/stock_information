@@ -1,16 +1,20 @@
 # 🌈주식 정보 페이지
-### 수정전
+### 진행 상황
+- 로그인 기능
 <p align="center">
 <img src="https://github.com/user-attachments/assets/951ae157-326f-464a-bd0e-1787f85edc6b" width="100%" height="100%">
+  
+- 로그인 후 화면
+<img src="https://github.com/user-attachments/assets/d3a45309-2f70-4c88-9188-d18310ca717f" width="100%" height="100%">
 </p>  
 
 ---
 
-### 수정 후
+### 로그인 창 수정
 <p align="center">
-<img src="https://github.com/user-attachments/assets/9cffbbac-eda3-412d-9d6d-5a7a0709558f" width="100%" height="100%">  
-<img src="https://github.com/user-attachments/assets/a5b54e1e-3854-4232-820b-11097603fb96" width="100%" height="100%">
-</p>  
+<img src="https://github.com/user-attachments/assets/de8ef1db-4005-4e34-a413-25e387dfb21d" width="40%" height="100%">  
+<img src="https://github.com/user-attachments/assets/1b720ce1-62cb-4bfc-b815-2fa231d60326" width="40%" height="100%">
+</p>
 
 - # 메인 데이터
 > ## 실시간 금과 은 가격
@@ -37,5 +41,7 @@
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/9ea1c973-7301-49d1-8e14-99cf483a8d16" width="70%" height="70%">
+<img src="https://github.com/user-attachments/assets/9cffbbac-eda3-412d-9d6d-5a7a0709558f" width="40%" height="100%">  
+<img src="https://github.com/user-attachments/assets/a5b54e1e-3854-4232-820b-11097603fb96" width="40%" height="100%">
 </p>
 
