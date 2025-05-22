@@ -10,7 +10,7 @@
 > ## 국제 유가  
 > ## 달러/원화, 엔/원화, 스위스프랑/원화
 > ## 나스닥, S&P500지수, 다우지수
-> ## AP통신&로이터통신의 경제 소식
+> ## AP통신&로이터통신의 경제 소식(미구현)
 
 ## 진행 상황
 <p align="center"> <img src="https://github.com/user-attachments/assets/d3a45309-2f70-4c88-9188-d18310ca717f" width="100%" height="100%">
