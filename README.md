@@ -12,7 +12,7 @@
 > ## 나스닥, S&P500지수, 다우지수
 > ## AP통신&로이터통신의 경제 소식(미구현)
 
-## 진행 상황
+## 현재 진행상황
 <p align="center"> 
 <img src="https://github.com/user-attachments/assets/27e9a66c-3a26-4249-aeed-ab1d970ddcfa" width="100%" height="100%">
 <img src="https://github.com/user-attachments/assets/d25d3fe1-9bba-44de-9c36-70828e169e5e" width="100%" height="100%">
@@ -21,7 +21,7 @@
 <details>
 <summary>이전/진행상황 보기</summary>
 
-## 수정 전
+## 디자인 수정 전
 <p align="center"> <img src="https://github.com/user-attachments/assets/d3a45309-2f70-4c88-9188-d18310ca717f" width="100%" height="100%">
 <img src="https://github.com/user-attachments/assets/951ae157-326f-464a-bd0e-1787f85edc6b" width="100%" height="100%">
 </p> 
