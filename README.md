@@ -13,12 +13,22 @@
 > ## AP통신&로이터통신의 경제 소식(미구현)
 
 ## 진행 상황
+<p align="center"> 
+<img src="https://github.com/user-attachments/assets/27e9a66c-3a26-4249-aeed-ab1d970ddcfa" width="100%" height="100%">
+<img src="https://github.com/user-attachments/assets/d25d3fe1-9bba-44de-9c36-70828e169e5e" width="100%" height="100%">
+</p> 
+
+<details>
+<summary>이전/진행상황 보기</summary>
+
+## 수정 전
 <p align="center"> <img src="https://github.com/user-attachments/assets/d3a45309-2f70-4c88-9188-d18310ca717f" width="100%" height="100%">
 <img src="https://github.com/user-attachments/assets/951ae157-326f-464a-bd0e-1787f85edc6b" width="100%" height="100%">
 </p> 
 
 > 금, 은, 비트코인, 달러인덱스, 유가, 달러, 엔, 프랑 환율, 나스닥 지수, us500지수, 다우지수 실시간 방영.
 > 오늘의 추천 종목 기능 추가.
+</details>  
 
 ---
 
