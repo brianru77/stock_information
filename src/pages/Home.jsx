@@ -90,7 +90,19 @@ export default function Home() {
         color: '#4b3d2a',
         minHeight: '100vh'
       }}>
-        <h1 style={{ textAlign: 'center' }}>📈 현금 흐름 지표 페이지</h1>
+        {/* <h1 style={{ textAlign: 'center' }}>📈 현금 흐름 지표 페이지</h1> */}
+        <h1 style={{
+          textAlign: 'center',
+          fontFamily: 'Montserrat, Noto Sans KR, sans-serif',
+          color: '#2F4858',  // 편안한 네이비 색
+          fontSize: '2rem',
+          fontWeight: '600',
+          letterSpacing: '0.5px',
+          marginTop: '-40px',  // 위쪽 여백 줄이기
+          margin: '24px 0'
+        }}>
+          📈 Cash Flow Metrics Page
+        </h1>
 
         <h2>실시간 금과 은 1g당 가격</h2>
         <div style={{

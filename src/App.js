@@ -26,18 +26,33 @@ function App() {
     <Router>
       {/* 상단 중앙에 로고 이미지 */}
       <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         backgroundColor: '#fff3da',
-        padding: '16px 0',
-        textAlign: 'center',
+        padding: '16px',
         borderBottom: '1px solid #ddd'
       }}>
+        {/* 좌측 상단 로고 */}
         <Link to="/">
           <img
-            src="/images/Back.png"
+            src="/images/back.png"
+            alt="brianru 로고"
+            style={{ height: '60px' }}
+          />
+        </Link>
+
+        {/* 중앙 텍스트 로고 */}
+        <Link to="/">
+          <img
+            src="/images/stockinfo0.png"
             alt="brianru페이지"
             style={{ height: '60px' }}
           />
         </Link>
+
+        {/* 오른쪽 공간용 빈 div (균형용) */}
+        <div style={{ width: '40px' }}></div>
       </div>
       {/* 상단 메뉴바 - 왼쪽과 오른쪽 정렬 */}
       <div className="topbar">

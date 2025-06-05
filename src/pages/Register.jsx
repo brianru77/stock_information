@@ -26,7 +26,7 @@ export default function Register() {
       justifyContent: 'center',
       alignItems: 'center',
       height: '80vh', // 세로 중앙
-      backgroundColor: '#2196F3'
+      backgroundColor: '#fff3da'
     },
     form: {
       display: 'flex',

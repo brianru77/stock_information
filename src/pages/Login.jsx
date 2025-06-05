@@ -26,7 +26,7 @@ export default function Login({ setUser }) {
       justifyContent: 'center',
       alignItems: 'center',
       height: '80vh', // 화면 세로 중앙
-      backgroundColor: '#FFD700'
+      backgroundColor: '#fff3da'
     },
     form: {
       display: 'flex',

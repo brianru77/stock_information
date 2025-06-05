@@ -53,5 +53,5 @@ app.get('/market-data', async (req, res) => {
 
 //서버 실행
 app.listen(PORT, () => {
-  console.log(`✅ 프록시 서버 실행됨: http://localhost:${PORT}`);
+  console.log(`프록시 서버 실행됨: http://localhost:${PORT}`);
 });
