@@ -1,8 +1,8 @@
 //외부 라이브러리 불러오기
 const express = require('express');
 const axios = require('axios');
-const dotenv = require('dotenv'); // .env 파일에서 환경변수 불러오기
-const cors = require('cors');     // CORS 정책 우회용
+const dotenv = require('dotenv'); //.env 파일에서 환경변수 불러오기
+const cors = require('cors');     //CORS 정책 우회용
 
 //환경변수=.env 설정
 dotenv.config();

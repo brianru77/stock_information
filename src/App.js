@@ -1,9 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home.jsx';     // 금/은 시세 화면
-import Login from './pages/Login.jsx';   // 로그인 화면
-import Register from './pages/Register.jsx'; // 회원가입 화면
+import Home from './pages/Home.jsx';     //금/은 시세 화면
+import Login from './pages/Login.jsx';   //로그인 화면
+import Register from './pages/Register.jsx'; //회원가입 화면
 import TodayRecommend from './pages/TodayRecommend.jsx'; //오늘의 추천 종목
 import News from './pages/News.jsx'; //새로운 뉴스 소식
 import MyPage from './pages/MyPage.jsx'; //내정보> 회원탈퇴

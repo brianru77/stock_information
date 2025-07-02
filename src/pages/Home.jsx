@@ -3,7 +3,7 @@ import axios from 'axios';
 import SideImageSlider from '../SideImageSlider';
 
 const Gold_Silver_Constant = 31.1034768;
-const POLL_INTERVAL_MS = 3600000; // 1시간
+const POLL_INTERVAL_MS = 3600000; //1시간
 
 export default function Home() {
   const [goldOz, setGoldOz] = useState(null);

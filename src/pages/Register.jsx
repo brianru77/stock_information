@@ -15,7 +15,7 @@ export default function Register() {
     try {
       await axios.post('http://localhost:4000/api/register', form);
       alert('회원가입 성공!');
-      navigate('/login'); // 회원가입 후 로그인으로 이동
+      navigate('/login'); //회원가입 후 로그인으로 이동
     } catch (err) {
       alert('회원가입 실패: ' + (err.response?.data?.message || '오류 발생'));
     }
@@ -25,7 +25,7 @@ export default function Register() {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '80vh', // 세로 중앙
+      height: '80vh', //세로 중앙
       backgroundColor: '#fff3da'
     },
     form: {

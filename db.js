@@ -9,7 +9,7 @@ const pool = new Pool({
   port: Number(process.env.DB_PORT), //숫자로 변환
 });
 
-// 연결 확인 (선택적)
+//연결 확인 (선택적)
 pool.connect()
   .then(() => console.log('PostgreSQL 연결 성공!'))
   .catch(err => {
